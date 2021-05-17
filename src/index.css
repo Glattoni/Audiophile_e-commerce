@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700&display=swap');
+/* 
+===============
+Variables
+===============
+*/
+:root {
+  /* Colors */
+  --clr-primary-1: hsl(22, 65%, 57%);
+  --clr-primary-1-lt: hsl(21, 94%, 75%);
+  --clr-primary-2: hsl(0, 0%, 6%);
+  --clr-primary-4: hsl(0, 0%, 98%);
+  --clr-primary-6: hsl(0, 0%, 20%);
+  --clr-base: hsl(0, 0%, 95%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-black: hsl(0, 0%, 0%);
+  /* Font size */
+  --fs-h1: 3.5rem;
+  --fs-h2: 2.5rem;
+  --fs-h3: 2rem;
+  --fs-h4: 1.75rem;
+  --fs-h5: 1.5rem;
+  --fs-h6: 1.125rem;
+  --fs-base: 0.9375rem;
+  --fs-mili: 0.875rem;
+  --fs-micro: 0.8125rem;
+  /* Line height */
+  --lh-h1: 3.625rem;
+  --lh-h2: 2.75rem;
+  --lh-h3: 2.25rem;
+  --lh-h4: 2.375rem;
+  --lh-h5: 2rem;
+  --lh-h6: 1.5rem;
+  --lh-base: 1.56rem;
+  --lh-mili: 1.2rem;
+  --lh-micro: 1.56rem;
+  /* Letter spacing */
+  --ls-h1: 0.125rem;
+  --ls-h2: 0.094rem;
+  --ls-h3: 0.72rem;
+  --ls-h4: 0.125rem;
+  --ls-h5: 0.106rem;
+  --ls-h6: 0.081rem;
+  --ls-mili: 0.625rem;
+  --ls-micro: 0.063rem;
+
+  --radius: 0.5rem;
+  --burger-transition: all 0.5s ease-in-out;
+  --general-transition: all 0.3s ease-in-out;
+}
+/* 
+===============
+Global styles
+===============
+*/
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Manrope', sans-serif;
+  line-height: var(--base);
+  font-size: var(--fs-base);
+  color: var(--clr-black);
+  background-color: var(--clr-base);
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ls-h1);
+  text-transform: uppercase;
+}
+h2 {
+  font-size: var(--fs-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+  text-transform: uppercase;
+}
+h3 {
+  font-size: var(--fs-h3);
+  line-height: var(--lh-h3);
+  letter-spacing: var(--ls-h3);
+  text-transform: uppercase;
+}
+h4 {
+  font-size: var(--fs-h4);
+  line-height: var(--lh-h4);
+  letter-spacing: var(--ls-h4);
+  text-transform: uppercase;
+}
+h5 {
+  font-size: var(--fs-h5);
+  line-height: var(--lh-h5);
+  letter-spacing: var(--ls-h5);
+  text-transform: uppercase;
+}
+h6 {
+  font-size: var(--fs-h6);
+  line-height: var(--lh-h6);
+  letter-spacing: var(--ls-h6);
+  text-transform: uppercase;
+}
+
+.container {
+  width: 90vw;
+  max-width: 1110px;
+  margin: 0 auto;
+}
