@@ -14,6 +14,7 @@ Variables
   --clr-base: hsl(0, 0%, 95%);
   --clr-white: hsl(0, 0%, 100%);
   --clr-black: hsl(0, 0%, 0%);
+  --clr-grey: hsl(0, 0%, 50%);
   /* Font size */
   --fs-h1: 3.5rem;
   --fs-h2: 2.5rem;
@@ -119,4 +120,30 @@ h6 {
   width: 90vw;
   max-width: 1110px;
   margin: 0 auto;
+}
+
+.btn-3 {
+  display: inline-block;
+  position: relative;
+  font-weight: bold;
+  font-size: var(--fs-mili);
+  color: var(--clr-grey);
+  letter-spacing: var(--ls-micro);
+  line-height: var(--lh-mili);
+  text-transform: uppercase;
+  padding-right: 0.9rem;
+  transition: var(--general-transition);
+  margin-bottom: 1.375rem;
+}
+
+.btn-3::after {
+  content: url('../src/assets/arrow.svg');
+  position: absolute;
+  top: 3%;
+  right: 0;
+  background: none;
+}
+
+.btn-3:hover {
+  color: var(--clr-primary-1);
 }

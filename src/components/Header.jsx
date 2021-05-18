@@ -10,7 +10,7 @@ const Header = () => {
   return (
     <Wrapper>
       <div className='container header__container'>
-        <Burger className='burger' />
+        <Burger />
         <img className='logo' src={logo} alt='logo' />
         <nav>
           <ul className='nav__list'>

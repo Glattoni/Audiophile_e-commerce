@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Header, Footer } from './components';
+import { Header, Footer, Sidebar } from './components';
 import {
   HomePage,
   Earphones,
@@ -14,6 +14,7 @@ function App() {
   return (
     <Router>
       <Header />
+      <Sidebar />
       <Switch>
         <Route exact path='/'>
           <HomePage />

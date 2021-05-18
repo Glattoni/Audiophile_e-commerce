@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import { useGlobalContext } from '../context/context';
 
 const Burger = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const { isSidebarOpen, openSidebar, closeSidebar } = useGlobalContext();
   return (
-    <Wrapper onClick={() => setIsOpen(!isOpen)}>
-      <div className={`${isOpen ? 'burger open' : 'burger'}`}></div>
+    <Wrapper onClick={isSidebarOpen ? closeSidebar : openSidebar}>
+      <div className={`${isSidebarOpen ? 'burger open' : 'burger'}`}></div>
     </Wrapper>
   );
 };
