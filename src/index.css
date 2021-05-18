@@ -143,7 +143,15 @@ h6 {
   right: 0;
   background: none;
 }
-
 .btn-3:hover {
+  color: var(--clr-primary-1);
+}
+
+.nav-link {
+  font-size: var(--fs-micro);
+  text-transform: uppercase;
+  transition: var(--general-transition);
+}
+.nav-link:hover {
   color: var(--clr-primary-1);
 }

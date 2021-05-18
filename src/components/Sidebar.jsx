@@ -12,28 +12,21 @@ const Sidebar = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.aside`
   transition: var(--burger-transition);
-  position: fixed;
+  position: absolute;
   top: 5.625rem;
   left: 0;
   right: 0;
+  z-index: 999;
   @media screen and (min-width: 992px) {
     display: none;
   }
   &.hide-sidebar {
     transform: translateX(-100vw);
-    /* @media screen and (min-width: 768px) {
-      opacity: 0;
-      transform: translateY(-100vh);
-    } */
   }
   &.show-sidebar {
     transform: translateX(0);
-    /* @media screen and (min-width: 768px) {
-      opacity: 1;
-      transform: translateY(0);
-    } */
   }
 `;
 

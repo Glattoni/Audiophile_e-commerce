@@ -18,7 +18,7 @@ const Header = () => {
               const { id, text, url } = link;
               return (
                 <li key={id}>
-                  <Link className='nav__link' to={url}>
+                  <Link className='nav-link' to={url}>
                     {text}
                   </Link>
                 </li>
@@ -47,14 +47,6 @@ const Wrapper = styled.header`
   .nav__list {
     display: flex;
     gap: 34px;
-  }
-  .nav__link {
-    font-size: var(--fs-micro);
-    text-transform: uppercase;
-    transition: var(--general-transition);
-    &:hover {
-      color: var(--clr-primary-1);
-    }
   }
   .header__container {
     display: flex;
