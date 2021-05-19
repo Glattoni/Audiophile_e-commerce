@@ -14,7 +14,9 @@ Variables
   --clr-base: hsl(0, 0%, 95%);
   --clr-white: hsl(0, 0%, 100%);
   --clr-black: hsl(0, 0%, 0%);
-  --clr-grey: hsl(0, 0%, 50%);
+  --clr-grey-1: hsl(0, 0%, 50%);
+  --clr-grey-2: hsl(0, 0%, 30%);
+  --clr-border: hsl(0, 0%, 10%);
   /* Font size */
   --fs-h1: 3.5rem;
   --fs-h2: 2.5rem;
@@ -67,7 +69,7 @@ body {
   line-height: var(--base);
   font-size: var(--fs-base);
   color: var(--clr-black);
-  background-color: var(--clr-base);
+  background-color: var(--clr-primary-4);
 }
 
 ul {
@@ -77,6 +79,11 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+button {
+  border: none;
+  background: none;
 }
 
 h1 {
@@ -120,6 +127,44 @@ h6 {
   width: 90vw;
   max-width: 1110px;
   margin: 0 auto;
+}
+
+.btn-1 {
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: var(--clr-primary-1);
+  color: var(--clr-white);
+  font-weight: bold;
+  padding: 0.9rem 1.665rem;
+  font-size: var(--fs-mili);
+  line-height: var(--lh-mili);
+  cursor: pointer;
+  letter-spacing: var(--ls-micro);
+  transition: var(--general-transition);
+}
+
+.btn-1:hover {
+  background-color: var(--clr-primary-1-lt);
+}
+
+.btn-2 {
+  display: inline-block;
+  text-transform: uppercase;
+  background-color: var(--clr-white);
+  color: var(--clr-black);
+  outline: 1px solid var(--clr-black);
+  font-weight: bold;
+  padding: 0.9rem 1.665rem;
+  font-size: var(--fs-mili);
+  line-height: var(--lh-mili);
+  cursor: pointer;
+  letter-spacing: var(--ls-micro);
+  transition: var(--general-transition);
+}
+
+.btn-2:hover {
+  background-color: var(--clr-black);
+  color: var(--clr-white);
 }
 
 .btn-3 {

@@ -15,26 +15,24 @@ function App() {
     <Router>
       <Header />
       <Sidebar />
-      <main>
-        <Switch>
-          <Route exact path='/'>
-            <HomePage />
-          </Route>
-          <Route exact path='/earphones'>
-            <Earphones />
-          </Route>
-          <Route exact path='/headphones'>
-            <Headphones />
-          </Route>
-          <Route exact path='/speakers'>
-            <Speakers />
-          </Route>
-          <Route exact path='/checkout'>
-            <Checkout />
-          </Route>
-          <Route exact path='/product:id' children={<SingleProduct />}></Route>
-        </Switch>
-      </main>
+      <Switch>
+        <Route exact path='/'>
+          <HomePage />
+        </Route>
+        <Route exact path='/earphones'>
+          <Earphones />
+        </Route>
+        <Route exact path='/headphones'>
+          <Headphones />
+        </Route>
+        <Route exact path='/speakers'>
+          <Speakers />
+        </Route>
+        <Route exact path='/checkout'>
+          <Checkout />
+        </Route>
+        <Route exact path='/product:id' children={<SingleProduct />}></Route>
+      </Switch>
       <Footer />
     </Router>
   );

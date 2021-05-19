@@ -1,11 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+import { Hero, Categories, FeaturedProducts } from '../components';
 
 const HomePage = () => {
   return (
-    <div>
-      <h1>Home page</h1>
-    </div>
+    <main>
+      <Hero />
+      <Categories />
+      <FeaturedProducts />
+    </main>
   );
 };
 

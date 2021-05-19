@@ -1,5 +1,5 @@
 import React from 'react';
-import Categories from './Categories';
+import SidebarLinks from './SidebarLinks';
 import styled from 'styled-components';
 import { useGlobalContext } from '../context/context';
 
@@ -7,7 +7,7 @@ const Sidebar = () => {
   const { isSidebarOpen } = useGlobalContext();
   return (
     <Wrapper className={`${isSidebarOpen ? 'show-sidebar' : 'hide-sidebar'}`}>
-      <Categories type='burger' />
+      <SidebarLinks />
     </Wrapper>
   );
 };
