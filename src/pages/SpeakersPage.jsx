@@ -1,10 +1,14 @@
 import React from 'react';
+import { PageHero, Speakers, Categories, AboutUs } from '../components';
 
 const SpeakersPage = () => {
   return (
-    <div>
-      <h1>Speakers</h1>
-    </div>
+    <main>
+      <PageHero name={'speakers'} />
+      <Speakers />
+      <Categories />
+      <AboutUs />
+    </main>
   );
 };
 

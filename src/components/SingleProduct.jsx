@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const HeadphonesCard = (data) => {
+const SingleProduct = (data) => {
   const width = window.innerWidth;
   const {
     img: { mobile, tablet, desktop },
@@ -98,4 +98,4 @@ const Content = styled.div`
   }
 `;
 
-export default HeadphonesCard;
+export default SingleProduct;

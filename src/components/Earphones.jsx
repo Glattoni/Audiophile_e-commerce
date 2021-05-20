@@ -1,6 +1,6 @@
 import React from 'react';
 import SingleProduct from './SingleProduct';
-import data from '../context/mockData/headphones';
+import data from '../context/mockData/earphones';
 import styled from 'styled-components';
 
 const Headphones = () => {

@@ -1,10 +1,14 @@
 import React from 'react';
+import { PageHero, Earphones, Categories, AboutUs } from '../components';
 
 const EarphonesPage = () => {
   return (
-    <div>
-      <h1>Earphones page</h1>
-    </div>
+    <main>
+      <PageHero name={'earphones'} />
+      <Earphones />
+      <Categories />
+      <AboutUs />
+    </main>
   );
 };
 

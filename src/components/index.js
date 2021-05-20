@@ -9,6 +9,8 @@ import FeaturedProducts from './FeaturedProducts';
 import AboutUs from './AboutUs';
 import PageHero from './PageHero';
 import Headphones from './Headphones';
+import Earphones from './Earphones';
+import Speakers from './Speakers';
 
 export {
   Header,
@@ -22,4 +24,6 @@ export {
   AboutUs,
   PageHero,
   Headphones,
+  Earphones,
+  Speakers,
 };
