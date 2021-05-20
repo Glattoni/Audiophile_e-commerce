@@ -1,8 +1,15 @@
 import Checkout from './Checkout';
-import Earphones from './Earphones';
-import Headphones from './Headphones';
+import EarphonesPage from './EarphonesPage';
+import HeadphonesPage from './HeadphonesPage';
 import HomePage from './HomePage';
 import SingleProduct from './SingleProduct';
-import Speakers from './Speakers';
+import SpeakersPage from './SpeakersPage';
 
-export { Checkout, Earphones, Headphones, HomePage, SingleProduct, Speakers };
+export {
+  Checkout,
+  EarphonesPage,
+  HeadphonesPage,
+  HomePage,
+  SingleProduct,
+  SpeakersPage,
+};

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Earphones = () => {
+const EarphonesPage = () => {
   return (
     <div>
       <h1>Earphones page</h1>
@@ -8,4 +8,4 @@ const Earphones = () => {
   );
 };
 
-export default Earphones;
+export default EarphonesPage;

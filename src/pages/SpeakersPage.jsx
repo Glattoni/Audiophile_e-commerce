@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Speakers = () => {
+const SpeakersPage = () => {
   return (
     <div>
       <h1>Speakers</h1>
@@ -8,4 +8,4 @@ const Speakers = () => {
   );
 };
 
-export default Speakers;
+export default SpeakersPage;

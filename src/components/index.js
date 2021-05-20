@@ -6,6 +6,9 @@ import Categories from './Categories';
 import Hero from './Hero';
 import SidebarLinks from './SidebarLinks';
 import FeaturedProducts from './FeaturedProducts';
+import AboutUs from './AboutUs';
+import PageHero from './PageHero';
+import Headphones from './Headphones';
 
 export {
   Header,
@@ -16,4 +19,7 @@ export {
   FeaturedProducts,
   Hero,
   SidebarLinks,
+  AboutUs,
+  PageHero,
+  Headphones,
 };

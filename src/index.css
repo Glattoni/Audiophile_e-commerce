@@ -200,3 +200,40 @@ h6 {
 .nav-link:hover {
   color: var(--clr-primary-1);
 }
+
+.overline {
+  text-transform: uppercase;
+  color: var(--clr-primary-1);
+  font-size: var(--fs-micro);
+  line-height: var(--fs-micro);
+  letter-spacing: var(--ls-mili);
+}
+
+.reverse {
+  flex-direction: row-reverse !important;
+}
+
+/* 
+===============
+Components styles
+===============
+*/
+
+.speaker-zx9 {
+  background-image: url('../src/assets/pattern-circles.svg');
+  background-position: center -8rem;
+  background-repeat: no-repeat;
+  background-size: 170%;
+}
+@media screen and (min-width: 768px) {
+  .speaker-zx9 {
+    background-position: center -17rem;
+    background-size: 130%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .speaker-zx9 {
+    background-position: -7.75rem -1rem;
+    background-size: 82%;
+  }
+}

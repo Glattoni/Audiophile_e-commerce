@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header, Footer, Sidebar } from './components';
 import {
   HomePage,
-  Earphones,
-  Headphones,
-  Speakers,
+  EarphonesPage,
+  HeadphonesPage,
+  SpeakersPage,
   Checkout,
   SingleProduct,
 } from './pages';
@@ -20,13 +20,13 @@ function App() {
           <HomePage />
         </Route>
         <Route exact path='/earphones'>
-          <Earphones />
+          <EarphonesPage />
         </Route>
         <Route exact path='/headphones'>
-          <Headphones />
+          <HeadphonesPage />
         </Route>
         <Route exact path='/speakers'>
-          <Speakers />
+          <SpeakersPage />
         </Route>
         <Route exact path='/checkout'>
           <Checkout />
