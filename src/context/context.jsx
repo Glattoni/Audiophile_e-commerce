@@ -1,12 +1,14 @@
 import React, { useReducer, useContext, createContext } from 'react';
+import { CLOSE_SIDEBAR, OPEN_SIDEBAR, GET_SINGLE_PRODUCT } from '../actions';
+import { data } from './mockData/data';
 import reducer from '../reducer';
-import { CLOSE_SIDEBAR, OPEN_SIDEBAR } from '../actions';
 
 const GlobalContext = createContext();
 
 const initialState = {
-  cart: [],
   isSidebarOpen: false,
+  single_product: {},
+  cart: [],
 };
 
 export const ContextProvider = ({ children }) => {
@@ -19,12 +21,18 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: CLOSE_SIDEBAR });
   };
 
+  const getSingleProduct = (id) => {
+    const product = data.find((item) => item.id === id);
+    dispatch({ type: GET_SINGLE_PRODUCT, payload: { product } });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
         ...state,
         openSidebar,
         closeSidebar,
+        getSingleProduct,
       }}
     >
       {children}

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import earphones from '../assets/mobile/earphones.jpg';
 import earphones_tablet from '../assets/tablet/earphones.jpg';
 import earphones_desktop from '../assets/desktop/earphones.jpg';
@@ -22,7 +23,9 @@ const Earphones_YX1 = () => {
       </ImageContainer>
       <div className='content'>
         <h4>yx1 earphones</h4>
-        <a className='btn-2'>see product</a>
+        <Link to='/' className='btn-2'>
+          see product
+        </Link>
       </div>
     </Wrapper>
   );

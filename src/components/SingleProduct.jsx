@@ -9,7 +9,6 @@ const SingleProduct = (data) => {
     new_label,
     name,
     text,
-    url,
     id,
   } = data;
   return (
@@ -24,7 +23,7 @@ const SingleProduct = (data) => {
         {new_label ? <span className='overline'>new product</span> : ''}
         <h4>{name}</h4>
         <p>{text}</p>
-        <Link to={url} className='btn-1'>
+        <Link to={`/product/${id}`} className='btn-1'>
           see product
         </Link>
       </Content>

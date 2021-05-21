@@ -213,6 +213,11 @@ h6 {
   flex-direction: row-reverse !important;
 }
 
+.go-back-btn {
+  opacity: 0.5;
+  font-weight: 500;
+}
+
 /* 
 ===============
 Components styles

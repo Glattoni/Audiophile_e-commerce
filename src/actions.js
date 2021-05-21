@@ -1,2 +1,3 @@
 export const OPEN_SIDEBAR = 'OPEN_SIDEBAR';
 export const CLOSE_SIDEBAR = 'CLOSE_SIDEBAR';
+export const GET_SINGLE_PRODUCT = 'GET_SINGLE_PRODUCT';

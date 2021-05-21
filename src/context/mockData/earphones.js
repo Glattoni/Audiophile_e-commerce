@@ -2,7 +2,7 @@ import yx1_earphones_mobile from '../../assets/earphones/mobile/yx1-earphones.jp
 import yx1_earphones_tablet from '../../assets/earphones/tablet/yx1-earphones.jpg';
 import yx1_earphones_desktop from '../../assets/earphones/desktop/yx1-earphones.jpg';
 
-const earphones__data = [
+const data = [
   {
     id: 1,
     img: {
@@ -12,8 +12,7 @@ const earphones__data = [
     },
     name: 'yx1 wireless earphones',
     text: 'Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.',
-    url: '/earphones:1',
     new_label: true,
   },
 ];
-export default earphones__data;
+export default data;

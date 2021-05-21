@@ -2,7 +2,7 @@ import Checkout from './Checkout';
 import EarphonesPage from './EarphonesPage';
 import HeadphonesPage from './HeadphonesPage';
 import HomePage from './HomePage';
-import SingleProduct from './SingleProduct';
+import SingleProductPage from './SingleProductPage';
 import SpeakersPage from './SpeakersPage';
 
 export {
@@ -10,6 +10,6 @@ export {
   EarphonesPage,
   HeadphonesPage,
   HomePage,
-  SingleProduct,
+  SingleProductPage,
   SpeakersPage,
 };

@@ -3,7 +3,7 @@ import SingleProduct from './SingleProduct';
 import data from '../context/mockData/earphones';
 import styled from 'styled-components';
 
-const Headphones = () => {
+const Earphones = () => {
   return (
     <Wrapper className='container'>
       {data.map((item) => {
@@ -20,4 +20,4 @@ const Wrapper = styled.section`
   margin-bottom: 7.5rem;
 `;
 
-export default Headphones;
+export default Earphones;

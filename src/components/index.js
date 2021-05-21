@@ -11,6 +11,11 @@ import PageHero from './PageHero';
 import Headphones from './Headphones';
 import Earphones from './Earphones';
 import Speakers from './Speakers';
+import ProductDetails from './ProductDetails';
+import ProductFeatures from './ProductFeatures';
+import ProductGallery from './ProductGallery';
+import ProductsPropositions from './ProductsPropositions';
+import ProductSet from './ProductSet';
 
 export {
   Header,
@@ -26,4 +31,9 @@ export {
   Headphones,
   Earphones,
   Speakers,
+  ProductDetails,
+  ProductFeatures,
+  ProductGallery,
+  ProductsPropositions,
+  ProductSet,
 };
