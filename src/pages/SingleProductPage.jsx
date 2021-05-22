@@ -7,6 +7,8 @@ import {
   ProductsPropositions,
   GoBackBtn,
   ProductDescription,
+  Categories,
+  AboutUs,
 } from '../components';
 import styled from 'styled-components';
 
@@ -21,15 +23,17 @@ const SingleProductPage = () => {
 
   useEffect(() => {
     getSingleProduct(id);
-  }, []);
+  }, [id]);
 
   return (
     <Main className='container'>
       <GoBackBtn className='go-back-btn' />
       <ProductDetails {...single_product} />
       <ProductDescription {...single_product} />
-      <ProductGallery />
-      <ProductsPropositions />
+      <ProductGallery {...single_product} />
+      <ProductsPropositions {...single_product} />
+      <Categories />
+      <AboutUs />
     </Main>
   );
 };
