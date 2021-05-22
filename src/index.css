@@ -40,7 +40,7 @@ Variables
   /* Letter spacing */
   --ls-h1: 0.125rem;
   --ls-h2: 0.094rem;
-  --ls-h3: 0.72rem;
+  --ls-h3: 0.072rem;
   --ls-h4: 0.125rem;
   --ls-h5: 0.106rem;
   --ls-h6: 0.081rem;
@@ -66,7 +66,7 @@ Global styles
 
 body {
   font-family: 'Manrope', sans-serif;
-  line-height: var(--base);
+  line-height: var(--lh-base);
   font-size: var(--fs-base);
   color: var(--clr-black);
   background-color: var(--clr-primary-4);
@@ -84,6 +84,8 @@ a {
 button {
   border: none;
   background: none;
+  font-family: Manrope;
+  cursor: pointer;
 }
 
 h1 {
@@ -202,6 +204,7 @@ h6 {
 }
 
 .overline {
+  display: inline-block;
   text-transform: uppercase;
   color: var(--clr-primary-1);
   font-size: var(--fs-micro);
@@ -216,6 +219,7 @@ h6 {
 .go-back-btn {
   opacity: 0.5;
   font-weight: 500;
+  line-height: var(--lh-micro);
 }
 
 /* 

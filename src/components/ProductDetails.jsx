@@ -1,28 +1,111 @@
 import React from 'react';
+import styled from 'styled-components';
+import AmountButton from './AmountButton';
 
 const ProductDetails = (data) => {
   const {
-    image: { mobile, tablet, desktop },
+    image: { mobile, tablet, desktop } = {},
     name,
-    new_label,
+    new: new_label,
     description,
-    features,
     price,
   } = data;
   const width = window.innerWidth;
   return (
-    <section>
-      <div>
+    <Wrapper>
+      <ImageContainer>
         <img
           src={width >= 1280 ? desktop : width >= 768 ? tablet : mobile}
           alt='image'
         />
-      </div>
-      <div>
+      </ImageContainer>
+      <Content>
         {new_label ? <span className='overline'>new product</span> : ''}
-      </div>
-    </section>
+        <h4>{name}</h4>
+        <p>{description}</p>
+        <span className='product-price'>$ {price}</span>
+        <Buttons>
+          <AmountButton />
+          <button className='btn-1'>add to cart</button>
+        </Buttons>
+      </Content>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled.section`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 5.5rem;
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    gap: 4.3rem;
+  }
+  @media screen and (min-width: 1280px) {
+    gap: 7.75rem;
+  }
+`;
+
+const ImageContainer = styled.div`
+  margin-bottom: 2rem;
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: var(--radius);
+  }
+  @media screen and (min-width: 768px) {
+    margin-bottom: 0;
+  }
+`;
+
+const Buttons = styled.div`
+  display: flex;
+  gap: 1rem;
+`;
+
+const Content = styled.div`
+  .overline {
+    margin-bottom: 1.5rem;
+  }
+  h4 {
+    margin-bottom: 1.5rem;
+  }
+  p {
+    opacity: 0.5;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+  .product-price {
+    display: inline-block;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: var(--fs-h6);
+    line-height: var(--lh-micro);
+    margin-bottom: 2rem;
+  }
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    max-width: 49%;
+    h4 {
+      margin-bottom: 2rem;
+    }
+    p {
+      margin-bottom: 2rem;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 40%;
+    h4 {
+      font-size: 2.25rem;
+      line-height: 2.5rem;
+      margin-bottom: 2rem;
+      max-width: 65%;
+    }
+    p {
+      margin-bottom: 2rem;
+    }
+  }
+`;
 
 export default ProductDetails;

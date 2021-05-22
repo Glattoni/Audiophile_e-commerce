@@ -12,10 +12,11 @@ import Headphones from './Headphones';
 import Earphones from './Earphones';
 import Speakers from './Speakers';
 import ProductDetails from './ProductDetails';
-import ProductFeatures from './ProductFeatures';
+import ProductDescription from './ProductDescription';
 import ProductGallery from './ProductGallery';
 import ProductsPropositions from './ProductsPropositions';
-import ProductSet from './ProductSet';
+import GoBackBtn from './GoBackBtn';
+import AmountButton from './AmountButton';
 
 export {
   Header,
@@ -32,8 +33,9 @@ export {
   Earphones,
   Speakers,
   ProductDetails,
-  ProductFeatures,
+  ProductDescription,
   ProductGallery,
   ProductsPropositions,
-  ProductSet,
+  GoBackBtn,
+  AmountButton,
 };

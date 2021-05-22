@@ -59,7 +59,7 @@ const Wrapper = styled.header`
       margin-right: 26rem;
     }
   }
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 1280px) {
     .logo {
       margin: 0;
     }

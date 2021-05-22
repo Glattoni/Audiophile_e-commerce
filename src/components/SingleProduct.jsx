@@ -12,7 +12,7 @@ const SingleProduct = (data) => {
     id,
   } = data;
   return (
-    <Wrapper className={`${id % 2 === 0 ? 'reverse' : ''}`}>
+    <Wrapper className={`${width >= 1280 && id % 2 === 0 ? 'reverse' : ''}`}>
       <div>
         <img
           src={width >= 1280 ? desktop : width >= 768 ? tablet : mobile}
