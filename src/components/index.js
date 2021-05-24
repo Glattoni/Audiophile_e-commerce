@@ -16,7 +16,8 @@ import ProductDescription from './ProductDescription';
 import ProductGallery from './ProductGallery';
 import ProductsPropositions from './ProductsPropositions';
 import GoBackBtn from './GoBackBtn';
-import AmountButton from './AmountButton';
+import AddToCartButtons from './AddToCartButtons';
+import Cart from './Cart';
 
 export {
   Header,
@@ -37,5 +38,6 @@ export {
   ProductGallery,
   ProductsPropositions,
   GoBackBtn,
-  AmountButton,
+  AddToCartButtons,
+  Cart,
 };

@@ -222,6 +222,14 @@ h6 {
   line-height: var(--lh-micro);
 }
 
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
 /* 
 ===============
 Components styles

@@ -1,23 +1,40 @@
-import React, { useReducer, useContext, createContext } from 'react';
+import React, { useReducer, useContext, createContext, useEffect } from 'react';
 import {
   CLOSE_SIDEBAR,
   OPEN_SIDEBAR,
-  GET_SINGLE_PRODUCT,
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
+  TOGGLE_CART_MODAL,
+  ADD_TO_CART,
+  GET_CART_TOTALS,
+  TOGGLE_CART_ITEM_AMOUNT,
 } from '../actions';
 import { data } from './mockData/data';
 import reducer from '../reducer';
 
 const GlobalContext = createContext();
 
+const checkLocalStorage = () => {
+  const cart = localStorage.getItem('cart');
+  if (cart) {
+    return JSON.parse(localStorage.getItem('cart'));
+  } else {
+    return [];
+  }
+};
+
 const initialState = {
   isSidebarOpen: false,
+  isCartModalOpen: false,
   single_product_loading: false,
   single_product_error: true,
   single_product: {},
-  cart: [],
+  cart: checkLocalStorage(),
+  total_amount: 0,
+  total_price: 0,
+  shipping_fee: 5000,
+  VAT: 0,
 };
 
 export const ContextProvider = ({ children }) => {
@@ -29,6 +46,10 @@ export const ContextProvider = ({ children }) => {
 
   const closeSidebar = () => {
     dispatch({ type: CLOSE_SIDEBAR });
+  };
+
+  const toggleCartModal = () => {
+    dispatch({ type: TOGGLE_CART_MODAL });
   };
 
   const getSingleProduct = (id) => {
@@ -43,6 +64,26 @@ export const ContextProvider = ({ children }) => {
     }
   };
 
+  const addToCart = (data) => {
+    const { id, name, amount, price, image, cartImage, slug } = data;
+    dispatch({
+      type: ADD_TO_CART,
+      payload: { id, name, amount, price, image, cartImage, slug },
+    });
+  };
+
+  const toggleAmount = (id, value) => {
+    dispatch({
+      type: TOGGLE_CART_ITEM_AMOUNT,
+      payload: { id, value },
+    });
+  };
+
+  useEffect(() => {
+    dispatch({ type: GET_CART_TOTALS });
+    localStorage.setItem('cart', JSON.stringify(state.cart));
+  }, [state.cart]);
+
   return (
     <GlobalContext.Provider
       value={{
@@ -50,6 +91,9 @@ export const ContextProvider = ({ children }) => {
         openSidebar,
         closeSidebar,
         getSingleProduct,
+        addToCart,
+        toggleAmount,
+        toggleCartModal,
       }}
     >
       {children}

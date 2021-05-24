@@ -17,8 +17,8 @@ const SingleProductPage = () => {
   const {
     single_product,
     getSingleProduct,
-    single_product_loading: loading,
-    single_product_error: error,
+    single_product_loading = loading,
+    single_product_error = error,
   } = useGlobalContext();
 
   useEffect(() => {

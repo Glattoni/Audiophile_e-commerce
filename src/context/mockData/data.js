@@ -1,7 +1,7 @@
 export const data = [
   {
     id: 1,
-    slug: 'yx1-earphones',
+    slug: 'YX1',
     name: 'YX1 Wireless Earphones',
     image: {
       mobile: '/product-yx1-earphones/mobile/product.jpg',
@@ -10,7 +10,7 @@ export const data = [
     },
     category: 'earphones',
     new: true,
-    price: 599,
+    price: 59900,
     description:
       'Tailor your listening experience with bespoke dynamic drivers from the new YX1 Wireless Earphones. Enjoy incredible high-fidelity sound even in noisy environments with its active noise cancellation feature.',
     features:
@@ -86,10 +86,11 @@ export const data = [
         },
       },
     ],
+    cartImage: '/cart/yx-1-earphones.jpg',
   },
   {
     id: 2,
-    slug: 'xx59-headphones',
+    slug: 'XX59',
     name: 'XX59 Headphones',
     image: {
       mobile: '/product-xx59-headphones/mobile/image-product.jpg',
@@ -98,7 +99,7 @@ export const data = [
     },
     category: 'headphones',
     new: false,
-    price: 899,
+    price: 89900,
     description:
       'Enjoy your audio almost anywhere and customize it to your specific tastes with the XX59 headphones. The stylish yet durable versatile wireless headset is a brilliant companion at home or on the move.',
     features:
@@ -170,10 +171,11 @@ export const data = [
         },
       },
     ],
+    cartImage: '/cart/image-xx59-headphones.jpg',
   },
   {
     id: 3,
-    slug: 'xx99-mark-one-headphones',
+    slug: 'XX99 MKI',
     name: 'XX99 Mark I Headphones',
     image: {
       mobile: '/product-xx99-mark-one-headphones/mobile/image-product.jpg',
@@ -182,7 +184,7 @@ export const data = [
     },
     category: 'headphones',
     new: false,
-    price: 1750,
+    price: 175000,
     description:
       'As the gold standard for headphones, the classic XX99 Mark I offers detailed and accurate audio reproduction for audiophiles, mixing engineers, and music aficionados alike in studios and on the go.',
     features:
@@ -257,10 +259,11 @@ export const data = [
         },
       },
     ],
+    cartImage: '/cart/image-xx99-mark-one-headphones.jpg',
   },
   {
     id: 4,
-    slug: 'xx99-mark-two-headphones',
+    slug: 'XX99 MKII',
     name: 'XX99 Mark II Headphones',
     image: {
       mobile: '/product-xx99-mark-two-headphones/mobile/image-product.jpg',
@@ -269,7 +272,7 @@ export const data = [
     },
     category: 'headphones',
     new: true,
-    price: 2999,
+    price: 299900,
     description:
       'The new XX99 Mark II headphones is the pinnacle of pristine audio. It redefines your premium headphone experience by reproducing the balanced depth and precision of studio-quality sound.',
     features:
@@ -348,10 +351,11 @@ export const data = [
         },
       },
     ],
+    cartImage: '/cart/image-xx99-mark-two-headphones.jpg',
   },
   {
     id: 5,
-    slug: 'zx7-speaker',
+    slug: 'ZX7',
     name: 'ZX7 Speaker',
     image: {
       mobile: '/product-zx7-speaker/mobile/image-product.jpg',
@@ -360,7 +364,7 @@ export const data = [
     },
     category: 'speakers',
     new: false,
-    price: 3500,
+    price: 350000,
     description:
       'Stream high quality sound wirelessly with minimal to no loss. The ZX7 speaker uses high-end audiophile components that represents the top of the line powered speakers for home or studio use.',
     features:
@@ -436,10 +440,11 @@ export const data = [
         },
       },
     ],
+    cartImage: '/cart/image-zx7-speaker.jpg',
   },
   {
     id: 6,
-    slug: 'zx9-speaker',
+    slug: 'ZX9',
     name: 'ZX9 Speaker',
     image: {
       mobile: '/product-zx9-speaker/mobile/image-product.jpg',
@@ -448,7 +453,7 @@ export const data = [
     },
     category: 'speakers',
     new: true,
-    price: 4500,
+    price: 450000,
     description:
       'Upgrade your sound system with the all new ZX9 active speaker. It’s a bookshelf speaker system that offers truly wireless connectivity -- creating new possibilities for more pleasing and practical audio setups.',
     features:
@@ -524,5 +529,6 @@ export const data = [
         },
       },
     ],
+    cartImage: '/cart/image-zx9-speaker.jpg',
   },
 ];

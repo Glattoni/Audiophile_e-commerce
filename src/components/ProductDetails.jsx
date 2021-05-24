@@ -1,16 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
-import AmountButton from './AmountButton';
+import { formatPrice } from '../utils/heleprs';
+import AddToCartButtons from './AddToCartButtons';
 
 const ProductDetails = (data) => {
+  const width = window.innerWidth;
   const {
+    id,
     image: { mobile, tablet, desktop } = {},
     name,
+    slug,
     new: new_label,
     description,
     price,
+    cartImage,
   } = data;
-  const width = window.innerWidth;
+
+  const cartInfo = { name, price, id, slug, cartImage };
+
   return (
     <Wrapper>
       <ImageContainer>
@@ -23,11 +30,8 @@ const ProductDetails = (data) => {
         {new_label ? <span className='overline'>new product</span> : ''}
         <h4>{name}</h4>
         <p>{description}</p>
-        <span className='product-price'>$ {price}</span>
-        <Buttons>
-          <AmountButton />
-          <button className='btn-1'>add to cart</button>
-        </Buttons>
+        <span className='product-price'>{formatPrice(price)}</span>
+        <AddToCartButtons {...cartInfo} />
       </Content>
     </Wrapper>
   );
@@ -57,11 +61,6 @@ const ImageContainer = styled.div`
   @media screen and (min-width: 768px) {
     margin-bottom: 0;
   }
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  gap: 1rem;
 `;
 
 const Content = styled.div`

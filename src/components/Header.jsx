@@ -1,12 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { useGlobalContext } from '../context/context';
 import logo from '../assets/logo.svg';
 import cart from '../assets/cart.svg';
 import { links } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import Burger from './Burger';
+import Cart from './Cart';
 
 const Header = () => {
+  const { toggleCartModal, isCartModalOpen } = useGlobalContext();
   return (
     <Wrapper>
       <div className='container header__container'>
@@ -26,7 +29,13 @@ const Header = () => {
             })}
           </ul>
         </nav>
-        <img src={cart} alt='cart' />
+        <img
+          className='cart-image'
+          src={cart}
+          alt='cart'
+          onClick={toggleCartModal}
+        />
+        <Cart />
       </div>
     </Wrapper>
   );
@@ -49,9 +58,13 @@ const Wrapper = styled.header`
     gap: 34px;
   }
   .header__container {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    .cart-image {
+      cursor: pointer;
+    }
   }
 
   @media screen and (min-width: 768px) {
