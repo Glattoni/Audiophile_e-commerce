@@ -8,6 +8,9 @@ import {
   GET_CART_TOTALS,
   TOGGLE_CART_ITEM_AMOUNT,
   TOGGLE_CART_MODAL,
+  CLEAR_CART,
+  COUNT_CART_VAT,
+  COUNT_GRAND_TOTAL,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -74,6 +77,14 @@ const reducer = (state, action) => {
     );
     return { ...state, total_amount, total_price };
   }
+  if (action.type === COUNT_CART_VAT) {
+    const calculatedVAT = state.total_price * 0.2;
+    return { ...state, VAT: calculatedVAT };
+  }
+  if (action.type === COUNT_GRAND_TOTAL) {
+    const grandTotal = state.total_price + state.shipping;
+    return { ...state, grand_total: grandTotal };
+  }
   if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
     const { id, value } = action.payload;
     const tempCart = state.cart.map((cartItem, index) => {
@@ -93,6 +104,9 @@ const reducer = (state, action) => {
       return cartItem;
     });
     return { ...state, cart: tempCart };
+  }
+  if (action.type === CLEAR_CART) {
+    return { ...state, cart: [] };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };

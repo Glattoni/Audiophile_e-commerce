@@ -6,20 +6,22 @@ import { Link } from 'react-router-dom';
 import CartAmountBtn from './CartAmountBtn';
 
 const Cart = () => {
-  const { isCartModalOpen, cart, total_price } = useGlobalContext();
+  const { isCartModalOpen, cart, total_price, clearCart } = useGlobalContext();
 
   return (
     <Wrapper className={`${isCartModalOpen ? 'show' : 'hide'}`}>
       <header className='cart-header'>
         <h6>cart ({cart.length})</h6>
-        <button className='clear-cart'>Remove all</button>
+        <button className='clear-cart' onClick={clearCart}>
+          Remove all
+        </button>
       </header>
       <CartList>
         {cart.map((cartItem) => {
-          const { id, slug, cartImage: image, price, amount } = cartItem;
+          const { id, slug, cartImage, price, amount } = cartItem;
           return (
             <ListItem key={id}>
-              <img src={image} alt='cart item' />
+              <img src={cartImage} alt='cart item' />
               <div className='item-info'>
                 <h6 className='slug'>{slug}</h6>
                 <span className='price'>{formatPrice(price)}</span>

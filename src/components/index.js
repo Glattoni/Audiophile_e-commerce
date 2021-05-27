@@ -18,6 +18,9 @@ import ProductsPropositions from './ProductsPropositions';
 import GoBackBtn from './GoBackBtn';
 import AddToCartButtons from './AddToCartButtons';
 import Cart from './Cart';
+import TextInput from './TextInput';
+import RadioInput from './RadioInput';
+import CartSummaryItem from './CartSummaryItem';
 
 export {
   Header,
@@ -40,4 +43,7 @@ export {
   GoBackBtn,
   AddToCartButtons,
   Cart,
+  TextInput,
+  RadioInput,
+  CartSummaryItem,
 };

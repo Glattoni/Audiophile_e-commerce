@@ -9,6 +9,9 @@ import {
   ADD_TO_CART,
   GET_CART_TOTALS,
   TOGGLE_CART_ITEM_AMOUNT,
+  CLEAR_CART,
+  COUNT_CART_VAT,
+  COUNT_GRAND_TOTAL,
 } from '../actions';
 import { data } from './mockData/data';
 import reducer from '../reducer';
@@ -33,8 +36,9 @@ const initialState = {
   cart: checkLocalStorage(),
   total_amount: 0,
   total_price: 0,
-  shipping_fee: 5000,
+  shipping: 5000,
   VAT: 0,
+  grand_total: 0,
 };
 
 export const ContextProvider = ({ children }) => {
@@ -79,8 +83,14 @@ export const ContextProvider = ({ children }) => {
     });
   };
 
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
+
   useEffect(() => {
     dispatch({ type: GET_CART_TOTALS });
+    dispatch({ type: COUNT_CART_VAT });
+    dispatch({ type: COUNT_GRAND_TOTAL });
     localStorage.setItem('cart', JSON.stringify(state.cart));
   }, [state.cart]);
 
@@ -94,6 +104,7 @@ export const ContextProvider = ({ children }) => {
         addToCart,
         toggleAmount,
         toggleCartModal,
+        clearCart,
       }}
     >
       {children}
