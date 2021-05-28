@@ -1,18 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const TextInput = ({
-  label,
-  name,
-  type,
-  placeholder,
-  register,
-  errors,
-  required,
-}) => {
+const TextInput = ({ label, name, type, placeholder, register, errors }) => {
   return (
     <Wrapper>
-      <Label htmlFor={label}>
+      <Label htmlFor={label} className={`${errors[label] ? 'danger' : ''}`}>
         {name}
         <p className='error-message'>{errors[label]?.message}</p>
       </Label>
@@ -20,8 +12,8 @@ const TextInput = ({
         id={label}
         type={type}
         placeholder={placeholder}
-        className={`${errors[label] ? 'danger' : ''}`}
-        {...register(label, { required: true })}
+        className={`${errors[label] ? 'border-danger' : ''}`}
+        {...register(label)}
       />
     </Wrapper>
   );
@@ -42,6 +34,9 @@ const Label = styled.label`
     text-transform: initial;
     color: var(--clr-danger);
   }
+  &.danger {
+    color: var(--clr-danger);
+  }
 `;
 
 const Input = styled.input`
@@ -55,7 +50,7 @@ const Input = styled.input`
     caret-color: var(--clr-primary-1);
     border-color: var(--clr-primary-1);
   }
-  &.danger {
+  &.border-danger {
     border: 2px solid var(--clr-danger);
   }
 `;

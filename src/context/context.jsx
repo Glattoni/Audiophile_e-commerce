@@ -12,6 +12,7 @@ import {
   CLEAR_CART,
   COUNT_CART_VAT,
   COUNT_GRAND_TOTAL,
+  TOGGLE_CHECKOUT_MODAL,
 } from '../actions';
 import { data } from './mockData/data';
 import reducer from '../reducer';
@@ -39,6 +40,7 @@ const initialState = {
   shipping: 5000,
   VAT: 0,
   grand_total: 0,
+  isCheckoutModalOpen: false,
 };
 
 export const ContextProvider = ({ children }) => {
@@ -87,6 +89,10 @@ export const ContextProvider = ({ children }) => {
     dispatch({ type: CLEAR_CART });
   };
 
+  const toggleCheckoutModal = () => {
+    dispatch({ type: TOGGLE_CHECKOUT_MODAL });
+  };
+
   useEffect(() => {
     dispatch({ type: GET_CART_TOTALS });
     dispatch({ type: COUNT_CART_VAT });
@@ -105,6 +111,7 @@ export const ContextProvider = ({ children }) => {
         toggleAmount,
         toggleCartModal,
         clearCart,
+        toggleCheckoutModal,
       }}
     >
       {children}

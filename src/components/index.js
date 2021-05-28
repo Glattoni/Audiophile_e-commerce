@@ -21,6 +21,8 @@ import Cart from './Cart';
 import TextInput from './TextInput';
 import RadioInput from './RadioInput';
 import CartSummaryItem from './CartSummaryItem';
+import CartSummary from './CartSummary';
+import OrderModal from './OrderModal';
 
 export {
   Header,
@@ -45,5 +47,7 @@ export {
   Cart,
   TextInput,
   RadioInput,
+  CartSummary,
   CartSummaryItem,
+  OrderModal,
 };

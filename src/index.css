@@ -48,8 +48,11 @@ Variables
   --ls-h6: 0.081rem;
   --ls-mili: 0.625rem;
   --ls-micro: 0.063rem;
-
+  /* Offsets */
+  --offset-big: 2.375rem;
+  /* Others */
   --radius: 0.5rem;
+  --modal-background: 0 0 0 1000rem rgba(0, 0, 0, 0.4);
   --burger-transition: all 0.5s ease-in-out;
   --general-transition: all 0.3s ease-in-out;
 }

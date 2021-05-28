@@ -11,6 +11,7 @@ import {
   CLEAR_CART,
   COUNT_CART_VAT,
   COUNT_GRAND_TOTAL,
+  TOGGLE_CHECKOUT_MODAL,
 } from './actions';
 
 const reducer = (state, action) => {
@@ -107,6 +108,9 @@ const reducer = (state, action) => {
   }
   if (action.type === CLEAR_CART) {
     return { ...state, cart: [] };
+  }
+  if (action.type === TOGGLE_CHECKOUT_MODAL) {
+    return { ...state, isCheckoutModalOpen: !state.isCheckoutModalOpen };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };

@@ -5,13 +5,13 @@ import {
   GoBackBtn,
   TextInput,
   RadioInput,
-  CartSummaryItem,
+  CartSummary,
+  OrderModal,
 } from '../components';
-import { useGlobalContext } from '../context/context';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { formatPrice } from '../utils/heleprs';
 // import parsePhoneNumberFromString from 'libphonenumber-js';
 import * as yup from 'yup';
+import { useGlobalContext } from '../context/context';
 
 const errorMessage = 'this field is required';
 
@@ -39,8 +39,8 @@ export const schema = yup.object().shape({
 // };
 
 const Checkout = () => {
-  const { cart, total_price, shipping, VAT, grand_total } = useGlobalContext();
-
+  const { toggleCheckoutModal, isCheckoutModalOpen } = useGlobalContext();
+  console.log(toggleCheckoutModal, isCheckoutModalOpen);
   const {
     register,
     handleSubmit,
@@ -51,13 +51,20 @@ const Checkout = () => {
     resolver: yupResolver(schema),
   });
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    if (data) {
+      return openCartModal();
+    }
+    console.log(data);
+  };
   const paymentMethod = watch('payment_method');
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Container className='container'>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <div className='container button-container'>
         <GoBackBtn className='return-button' />
+      </div>
+      <Container className='container'>
         <UserInfo>
           <h4>Checkout</h4>
           <FormGroup>
@@ -127,97 +134,90 @@ const Checkout = () => {
               />
             </FieldWrapper>
           </FormGroup>
-          <FormGroup className='payment-details'>
+          <FormGroup>
             <h6 className='group-title'>payment details</h6>
-            <FormSubGroup>
-              <RadioInput
-                label='payment_method'
-                name='e-Money'
-                type='text'
-                value='e-Money'
-                register={register}
-                defaultChecked={true}
-              />
-              <RadioInput
-                label='payment_method'
-                name='Cash on Delivery'
-                type='text'
-                value='Cash on Delivery'
-                register={register}
-              />
-            </FormSubGroup>
-            <FormSubGroup>
-              <TextInput
-                label='payment_number'
-                name={`${
-                  paymentMethod === 'Cash on Delivery'
-                    ? 'Cash on Delivery'
-                    : 'e-Money'
-                } number`}
-                type='text'
-                placeholder='238521993'
-                errors={errors}
-                register={register}
-                required
-              />
-              <TextInput
-                label='payment_pin'
-                name={`${
-                  paymentMethod === 'Cash on Delivery'
-                    ? 'Cash on Delivery'
-                    : 'e-Money'
-                } PIN`}
-                type='text'
-                placeholder='6891'
-                errors={errors}
-                register={register}
-                required
-              />
-            </FormSubGroup>
+            <FieldWrapper className='payment-wrapper'>
+              <FormSubGroup className='payment-details'>
+                <p className='subgroup-title'>Payment method</p>
+                <RadioWrapper>
+                  <RadioInput
+                    label='payment_method'
+                    name='e-Money'
+                    type='text'
+                    value='e-Money'
+                    register={register}
+                    defaultChecked={true}
+                  />
+                  <RadioInput
+                    label='payment_method'
+                    name='Cash on Delivery'
+                    type='text'
+                    value='Cash on Delivery'
+                    register={register}
+                  />
+                </RadioWrapper>
+              </FormSubGroup>
+              <FormSubGroup className='payment-data'>
+                <TextInput
+                  label='payment_number'
+                  name={`${
+                    paymentMethod === 'Cash on Delivery'
+                      ? 'Cash on Delivery'
+                      : 'e-Money'
+                  } number`}
+                  type='text'
+                  placeholder='238521993'
+                  errors={errors}
+                  register={register}
+                  required
+                />
+                <TextInput
+                  label='payment_pin'
+                  name={`${
+                    paymentMethod === 'Cash on Delivery'
+                      ? 'Cash on Delivery'
+                      : 'e-Money'
+                  } PIN`}
+                  type='text'
+                  placeholder='6891'
+                  errors={errors}
+                  register={register}
+                  required
+                />
+              </FormSubGroup>
+            </FieldWrapper>
           </FormGroup>
         </UserInfo>
-        <Summary>
-          <h6 className='summary-title'>Summary</h6>
-          <ul className='cart-items'>
-            {cart.map((cartItem) => {
-              return <CartSummaryItem key={cartItem.id} {...cartItem} />;
-            })}
-          </ul>
-          <Totals>
-            <p className='total-field'>
-              total
-              <span className='price'>{formatPrice(total_price)}</span>
-            </p>
-            <p className='total-field'>
-              shipping
-              <span className='price'>{formatPrice(shipping)}</span>
-            </p>
-            <p className='total-field'>
-              vat (included)
-              <span className='price'>{formatPrice(VAT)}</span>
-            </p>
-            <p className='total-field'>
-              grand total
-              <span className='price grand-total'>
-                {formatPrice(grand_total)}
-              </span>
-            </p>
-          </Totals>
-          <button type='submit' className='btn-1'>
-            continue & pay
-          </button>
-        </Summary>
+        <CartSummary />
+        <OrderModal />
       </Container>
-    </form>
+    </Form>
   );
 };
 
+const Form = styled.form`
+  padding: 1rem 0 6rem 0;
+  .button-container {
+    margin-bottom: var(--offset-big);
+  }
+  @media screen and (min-width: 768px) {
+    padding: 3rem 0 7.25rem 0;
+  }
+  @media screen and (min-width: 1280px) {
+    padding: 5rem 0 8.8rem 0;
+  }
+`;
+
 const Container = styled.div`
-  padding: 1rem 0rem 6.25rem 0rem;
   font-family: 'Manrope';
   display: flex;
   gap: 2rem;
   flex-direction: column;
+  @media screen and (min-width: 1280px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 `;
 
 const FormGroup = styled.div`
@@ -228,32 +228,55 @@ const FormGroup = styled.div`
     font-size: var(--fs-mili);
     color: var(--clr-primary-1);
   }
+  @media screen and (min-width: 768px) {
+  }
 `;
 
 const FieldWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem 1.5rem;
-  &.billing-details > * {
-    flex: 1 1 100%;
-  }
-  &.shipping-details > * {
+  gap: 1.5rem 1rem;
+  & > * {
     flex: 1 1 100%;
   }
   @media screen and (min-width: 768px) {
-    &.billing-details > * {
-      flex: 0 1 19.35rem;
-    }
-    &.shipping-details > * {
-      flex: 0 1 19.35rem;
+    & > *:not(.payment-details):not(.payment-data) {
+      flex: 0 1 19.3rem;
     }
     &.shipping-details > div:first-child {
       flex-basis: 100%;
+    }
+    &.payment-wrapper {
+      flex-direction: column;
     }
   }
 `;
 
 const FormSubGroup = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .subgroup-title {
+    font-size: 0.75rem;
+    font-weight: bold;
+  }
+  @media screen and (min-width: 768px) {
+    &.payment-details {
+      flex-direction: row;
+    }
+    &.payment-details > * {
+      width: 19.6rem;
+    }
+    &.payment-data {
+      flex-direction: row;
+    }
+    &.payment-data > * {
+      flex: 0 1 19.6rem;
+    }
+  }
+`;
+
+const RadioWrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -266,42 +289,12 @@ const UserInfo = styled.div`
   gap: 2rem;
   border-radius: var(--radius);
   padding: 1.5rem;
-`;
-
-const Summary = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  background-color: var(--clr-white);
-  border-radius: var(--radius);
-  padding: 1.5rem;
-  .cart-items {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
+  max-width: 45.625rem;
+  @media screen and (min-width: 768px) {
+    padding: 1.875rem 1.75rem;
   }
-`;
-
-const Totals = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  .total-field {
-    text-transform: uppercase;
-    display: flex;
-    justify-content: space-between;
-    color: var(--clr-grey-1);
-    &:last-child {
-      margin-top: 1.5rem;
-    }
-    .price {
-      font-size: var(--fs-h6);
-      font-weight: bold;
-      color: var(--clr-black);
-    }
-    .grand-total {
-      color: var(--clr-primary-1);
-    }
+  @media screen and (min-width: 1280px) {
+    padding: 3rem;
   }
 `;
 
