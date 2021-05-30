@@ -15,7 +15,7 @@ const HomePage = () => {
   );
 };
 
-const Container = styled.main`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 7.5rem;

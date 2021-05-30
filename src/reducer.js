@@ -85,7 +85,7 @@ const reducer = (state, action) => {
   if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
     const { id, value } = action.payload;
     const tempCart = state.cart
-      .map((cartItem, index) => {
+      .map((cartItem) => {
         if (cartItem.id === id) {
           if (value === 'inc') {
             return { ...cartItem, amount: cartItem.amount + 1 };

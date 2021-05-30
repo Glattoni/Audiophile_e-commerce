@@ -15,13 +15,13 @@ const EarphonesPage = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   padding-bottom: 10rem;
   @media screen and (min-width: 1280px) {
     padding-bottom: 10rem;
   }
 `;
-const Container = styled.main`
+const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 7.5rem;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import cashLogo from '/Shape.png';
 import { useForm } from 'react-hook-form';
@@ -29,27 +29,35 @@ export const schema = yup.object().shape({
     .required(errorMessage),
   city: yup.string().required(errorMessage),
   country: yup.string().required(errorMessage),
-  payment_number: yup
-    .number()
-    .typeError('you must specify a number')
-    .required(errorMessage),
-  payment_pin: yup
-    .number()
-    .typeError('you must specify a number')
-    .required(errorMessage),
+  payment_method: yup.string().required(),
+  e_money_number: yup.string().when('payment_method', {
+    is: (value) => value === 'e-Money',
+    then: yup.string().required(errorMessage),
+    otherwise: yup.string().notRequired(),
+  }),
+  e_money_pin: yup.string().when('payment_method', {
+    is: (value) => value === 'e-Money',
+    then: yup.string().required(errorMessage),
+    otherwise: yup.string().notRequired(),
+  }),
 });
 
 const Checkout = () => {
-  const { toggleCheckoutModal, isCheckoutModalOpen } = useGlobalContext();
+  const { toggleCheckoutModal } = useGlobalContext();
   const {
     register,
     handleSubmit,
     watch,
+    trigger,
     formState: { errors },
   } = useForm({
     mode: 'onBlur',
     resolver: yupResolver(schema),
   });
+
+  useEffect(() => {
+    trigger('payment_method');
+  }, []);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -157,7 +165,27 @@ const Checkout = () => {
                   />
                 </RadioWrapper>
               </FormSubGroup>
-              {paymentMethod === 'Cash on Delivery' ? (
+              {paymentMethod === 'e-Money' && (
+                <FormSubGroup className='payment-data'>
+                  <TextInput
+                    label='e_money_number'
+                    name='e-Money number'
+                    type='text'
+                    placeholder='238521993'
+                    errors={errors}
+                    register={register}
+                  />
+                  <TextInput
+                    label='e_money_pin'
+                    name='e-Money PIN'
+                    type='text'
+                    placeholder='6891'
+                    errors={errors}
+                    register={register}
+                  />
+                </FormSubGroup>
+              )}
+              {paymentMethod === 'Cash on Delivery' && (
                 <CashOnDelivery>
                   <img src={cashLogo} alt='cash on delivery logo' />
                   <p>
@@ -167,35 +195,6 @@ const Checkout = () => {
                     not be cancelled.
                   </p>
                 </CashOnDelivery>
-              ) : (
-                <FormSubGroup className='payment-data'>
-                  <TextInput
-                    label='payment_number'
-                    name={`${
-                      paymentMethod === 'Cash on Delivery'
-                        ? 'Cash on Delivery'
-                        : 'e-Money'
-                    } number`}
-                    type='text'
-                    placeholder='238521993'
-                    errors={errors}
-                    register={register}
-                    required
-                  />
-                  <TextInput
-                    label='payment_pin'
-                    name={`${
-                      paymentMethod === 'Cash on Delivery'
-                        ? 'Cash on Delivery'
-                        : 'e-Money'
-                    } PIN`}
-                    type='text'
-                    placeholder='6891'
-                    errors={errors}
-                    register={register}
-                    required
-                  />
-                </FormSubGroup>
               )}
             </FieldWrapper>
           </FormGroup>

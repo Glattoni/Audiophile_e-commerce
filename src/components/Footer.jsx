@@ -35,17 +35,29 @@ const Footer = () => {
           <p>Copyright {new Date().getFullYear()}. All rights reserved</p>
           <ul>
             <li>
-              <a href='https://www.facebook.com/' target='_blank'>
+              <a
+                href='https://www.facebook.com/'
+                target='_blank'
+                aria-label='follow us on facebook'
+              >
                 <Facebook className='social-icon' />
               </a>
             </li>
             <li>
-              <a href='https://twitter.com/?lang=en' target='_blank'>
+              <a
+                href='https://twitter.com/?lang=en'
+                target='_blank'
+                aria-label='follow us on twitter '
+              >
                 <Twitter className='social-icon' />
               </a>
             </li>
             <li>
-              <a href='https://www.instagram.com/' target='_blank'>
+              <a
+                href='https://www.instagram.com/'
+                target='_blank'
+                aria-label='follow us on twitter '
+              >
                 <Instagram className='social-icon' />
               </a>
             </li>

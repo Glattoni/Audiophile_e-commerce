@@ -11,12 +11,12 @@ const Cart = () => {
 
   return (
     <Wrapper className={`${isCartModalOpen ? 'show' : 'hide'}`}>
-      <header className='cart-header'>
+      <div className='cart-header'>
         <h6>cart ({cart.length})</h6>
         <button className='clear-cart' onClick={clearCart}>
           Remove all
         </button>
-      </header>
+      </div>
       {cart.length !== 0 && (
         <CartList>
           {cart.map((cartItem) => {

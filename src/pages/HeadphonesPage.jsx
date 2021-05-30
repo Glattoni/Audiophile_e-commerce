@@ -15,7 +15,7 @@ const HeadphonesPage = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.main`
   padding-bottom: 7.5rem;
   @media screen and (min-width: 1280px) {
     padding-bottom: 10rem;
