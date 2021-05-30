@@ -10,7 +10,6 @@ import {
   OrderModal,
 } from '../components';
 import { yupResolver } from '@hookform/resolvers/yup';
-// import parsePhoneNumberFromString from 'libphonenumber-js';
 import * as yup from 'yup';
 import { useGlobalContext } from '../context/context';
 
@@ -40,14 +39,6 @@ export const schema = yup.object().shape({
     .required(errorMessage),
 });
 
-// const normalizePhoneNumber = (value) => {
-//   const phoneNumber = parsePhoneNumberFromString(value);
-//   if (!phoneNumber) {
-//     return value;
-//   }
-//   return phoneNumber.formatInternational();
-// };
-
 const Checkout = () => {
   const { toggleCheckoutModal, isCheckoutModalOpen } = useGlobalContext();
   const {
@@ -71,7 +62,7 @@ const Checkout = () => {
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <div className='container button-container'>
-        <GoBackBtn className='return-button' />
+        <GoBackBtn />
       </div>
       <Container className='container'>
         <UserInfo>
@@ -223,6 +214,9 @@ const Form = styled.form`
   }
   @media screen and (min-width: 1280px) {
     padding: 5rem 0 8.8rem 0;
+  }
+  .button-container {
+    margin-bottom: 1.5rem;
   }
 `;
 
