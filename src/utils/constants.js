@@ -1,5 +1,6 @@
-import { earphones, headphones, speakers } from '../assets/categories';
-import { facebook, twitter, instagram } from '../assets/socials';
+import headphones from '/shared/desktop/image-headphones.png';
+import earphones from '/shared/desktop/image-earphones.png';
+import speakers from '/shared/desktop/image-speakers.png';
 
 export const links = [
   {
@@ -41,27 +42,6 @@ export const categories = [
     id: 3,
     img: earphones,
     text: 'earphones',
-    url: '/earphones',
-  },
-];
-
-export const socialLinks = [
-  {
-    id: 1,
-    img: facebook,
-    text: 'facebook',
-    url: '/headphones',
-  },
-  {
-    id: 2,
-    img: twitter,
-    text: 'twitter',
-    url: '/speakers',
-  },
-  {
-    id: 3,
-    img: instagram,
-    text: 'instagram',
     url: '/earphones',
   },
 ];

@@ -1,6 +1,6 @@
-import yx1_earphones_mobile from '../../assets/earphones/mobile/yx1-earphones.jpg';
-import yx1_earphones_tablet from '../../assets/earphones/tablet/yx1-earphones.jpg';
-import yx1_earphones_desktop from '../../assets/earphones/desktop/yx1-earphones.jpg';
+import yx1_earphones_mobile from '/category-earphones/mobile/image-yx1-earphones.jpg';
+import yx1_earphones_tablet from '/category-earphones/tablet/image-yx1-earphones.jpg';
+import yx1_earphones_desktop from '/category-earphones/desktop/image-yx1-earphones.jpg';
 
 const data = [
   {

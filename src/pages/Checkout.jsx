@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import cashLogo from '/Shape.png';
 import { useForm } from 'react-hook-form';
 import {
   GoBackBtn,
@@ -23,11 +24,20 @@ export const schema = yup.object().shape({
   email: yup.string().email('wrong format').required(errorMessage),
   phone_number: yup.string().required(errorMessage),
   address: yup.string().required(errorMessage),
-  zip_code: yup.string().required(errorMessage),
+  zip_code: yup
+    .number()
+    .typeError('you must specify a number')
+    .required(errorMessage),
   city: yup.string().required(errorMessage),
   country: yup.string().required(errorMessage),
-  payment_number: yup.string().required(errorMessage),
-  payment_pin: yup.string().required(errorMessage),
+  payment_number: yup
+    .number()
+    .typeError('you must specify a number')
+    .required(errorMessage),
+  payment_pin: yup
+    .number()
+    .typeError('you must specify a number')
+    .required(errorMessage),
 });
 
 // const normalizePhoneNumber = (value) => {
@@ -40,7 +50,6 @@ export const schema = yup.object().shape({
 
 const Checkout = () => {
   const { toggleCheckoutModal, isCheckoutModalOpen } = useGlobalContext();
-  console.log(toggleCheckoutModal, isCheckoutModalOpen);
   const {
     register,
     handleSubmit,
@@ -52,10 +61,10 @@ const Checkout = () => {
   });
 
   const onSubmit = (data) => {
-    if (data) {
-      return openCartModal();
-    }
     console.log(data);
+    if (data) {
+      toggleCheckoutModal();
+    }
   };
   const paymentMethod = watch('payment_method');
 
@@ -157,34 +166,46 @@ const Checkout = () => {
                   />
                 </RadioWrapper>
               </FormSubGroup>
-              <FormSubGroup className='payment-data'>
-                <TextInput
-                  label='payment_number'
-                  name={`${
-                    paymentMethod === 'Cash on Delivery'
-                      ? 'Cash on Delivery'
-                      : 'e-Money'
-                  } number`}
-                  type='text'
-                  placeholder='238521993'
-                  errors={errors}
-                  register={register}
-                  required
-                />
-                <TextInput
-                  label='payment_pin'
-                  name={`${
-                    paymentMethod === 'Cash on Delivery'
-                      ? 'Cash on Delivery'
-                      : 'e-Money'
-                  } PIN`}
-                  type='text'
-                  placeholder='6891'
-                  errors={errors}
-                  register={register}
-                  required
-                />
-              </FormSubGroup>
+              {paymentMethod === 'Cash on Delivery' ? (
+                <CashOnDelivery>
+                  <img src={cashLogo} alt='cash on delivery logo' />
+                  <p>
+                    The ‘Cash on Delivery’ option enables you to pay in cash
+                    when our delivery courier arrives at your residence. Just
+                    make sure your address is correct so that your order will
+                    not be cancelled.
+                  </p>
+                </CashOnDelivery>
+              ) : (
+                <FormSubGroup className='payment-data'>
+                  <TextInput
+                    label='payment_number'
+                    name={`${
+                      paymentMethod === 'Cash on Delivery'
+                        ? 'Cash on Delivery'
+                        : 'e-Money'
+                    } number`}
+                    type='text'
+                    placeholder='238521993'
+                    errors={errors}
+                    register={register}
+                    required
+                  />
+                  <TextInput
+                    label='payment_pin'
+                    name={`${
+                      paymentMethod === 'Cash on Delivery'
+                        ? 'Cash on Delivery'
+                        : 'e-Money'
+                    } PIN`}
+                    type='text'
+                    placeholder='6891'
+                    errors={errors}
+                    register={register}
+                    required
+                  />
+                </FormSubGroup>
+              )}
             </FieldWrapper>
           </FormGroup>
         </UserInfo>
@@ -197,14 +218,30 @@ const Checkout = () => {
 
 const Form = styled.form`
   padding: 1rem 0 6rem 0;
-  .button-container {
-    margin-bottom: var(--offset-big);
-  }
   @media screen and (min-width: 768px) {
     padding: 3rem 0 7.25rem 0;
   }
   @media screen and (min-width: 1280px) {
     padding: 5rem 0 8.8rem 0;
+  }
+`;
+
+const CashOnDelivery = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 0px !important;
+  gap: 2rem;
+  align-items: center;
+  img {
+    width: 3rem;
+    height: 3rem;
+  }
+  p {
+    opacity: 0.5;
+    font-weight: 500;
+  }
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
   }
 `;
 

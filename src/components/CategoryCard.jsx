@@ -1,14 +1,26 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { scrollToTop } from '../utils/heleprs';
+import { useGlobalContext } from '../context/context';
 
 const CategoryCard = ({ img, text, url }) => {
+  const { toggleSidebar, isSidebarOpen } = useGlobalContext();
   return (
     <ListItem>
       <img src={img} alt={text} />
       <div className='card'>
         <h6 className='card__title'>{text}</h6>
-        <Link className='btn-3' to={url}>
+        <Link
+          className='btn-3'
+          to={url}
+          onClick={() => {
+            if (isSidebarOpen) {
+              toggleSidebar();
+            }
+            scrollToTop();
+          }}
+        >
           Shop
         </Link>
       </div>
@@ -19,9 +31,9 @@ const CategoryCard = ({ img, text, url }) => {
 const ListItem = styled.li`
   position: relative;
   text-align: center;
-  padding-top: 15%;
+  padding-top: 20%;
   img {
-    max-width: 30%;
+    max-width: 50%;
     position: absolute;
     top: 0;
     left: 50%;

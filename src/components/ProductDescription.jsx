@@ -31,7 +31,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 5.5rem;
-  margin-bottom: 5.5rem;
   h5 {
     margin-bottom: 1.5rem;
   }
@@ -48,10 +47,10 @@ const Wrapper = styled.div`
       font-size: var(--fs-h3);
       letter-spacing: var(--ls-h3);
     }
+    gap: 10rem;
   }
   @media screen and (min-width: 1280px) {
     flex-direction: row;
-    gap: 7.85rem;
     div {
       max-width: 57%;
     }

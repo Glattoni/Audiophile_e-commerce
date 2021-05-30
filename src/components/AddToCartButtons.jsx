@@ -58,8 +58,16 @@ const Container = styled.div`
 const Amount = styled.span`
   font-size: 1rem;
   display: block;
-  opacity: 0.25;
+  color: var(--clr-grey-3);
   cursor: pointer;
+  transition: var(--general-transition);
+  ::selection {
+    color: none;
+    background-color: none;
+  }
+  :hover {
+    color: var(--clr-primary-1);
+  }
 `;
 
 export default AmountButton;

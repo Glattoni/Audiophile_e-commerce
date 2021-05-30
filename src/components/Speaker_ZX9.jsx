@@ -1,20 +1,34 @@
 import React from 'react';
 import styled from 'styled-components';
-import speaker from '../assets/mobile/speaker_zx9.svg';
-import speaker_desktop from '../assets/desktop/speaker_zx9.svg';
+import speaker_mobile from '/home/mobile/image-speaker-zx9.png';
+import speaker_tablet from '/home/tablet/image-speaker-zx9.png';
+import speaker_desktop from '/home/desktop/image-speaker-zx9.png';
+import { Link } from 'react-router-dom';
+import { scrollToTop } from '../utils/heleprs';
 
 const Speaker_ZX9 = () => {
   const width = window.innerWidth;
   return (
     <Wrapper className='speaker-zx9'>
-      <img src={`${width >= 1280 ? speaker_desktop : speaker}`} alt='speaker' />
+      <img
+        src={`${
+          width >= 1280
+            ? speaker_desktop
+            : width >= 768
+            ? speaker_tablet
+            : speaker_mobile
+        }`}
+        alt='speaker'
+      />
       <Container>
         <h3>zx9 speaker</h3>
         <p>
           Upgrade to premium speakers that are phenomenally built to deliver
           truly remarkable sound.
         </p>
-        <a className='btn-2'>see product</a>
+        <Link to='/product/6' className='btn-2' onClick={scrollToTop}>
+          see product
+        </Link>
       </Container>
     </Wrapper>
   );
@@ -31,18 +45,21 @@ const Wrapper = styled.article`
   img {
     margin-bottom: 2rem;
     position: relative;
+    max-width: 10rem;
   }
   @media screen and (min-width: 768px) {
     img {
+      max-width: 12.5rem;
       margin-bottom: 4rem;
     }
   }
   @media screen and (min-width: 1280px) {
     padding: 8.5rem;
     img {
+      max-width: 24rem;
       position: absolute;
-      bottom: -4rem;
-      left: 7.5rem;
+      bottom: -4.75rem;
+      left: 8.75rem;
     }
   }
 `;

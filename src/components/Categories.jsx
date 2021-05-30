@@ -5,7 +5,7 @@ import styled from 'styled-components';
 
 const Categories = () => {
   return (
-    <Wrapper>
+    <section>
       <div className='container'>
         <CategoriesList>
           {categories.map((category) => {
@@ -15,13 +15,9 @@ const Categories = () => {
           })}
         </CategoriesList>
       </div>
-    </Wrapper>
+    </section>
   );
 };
-
-const Wrapper = styled.section`
-  margin-bottom: 5rem;
-`;
 
 const CategoriesList = styled.ul`
   display: grid;

@@ -1,21 +1,23 @@
 import React from 'react';
 import styled from 'styled-components';
 import { useGlobalContext } from '../context/context';
-import logo from '../assets/logo.svg';
-import cart from '../assets/cart.svg';
+import logo from '/shared/desktop/logo.svg';
+import icon_cart from '/shared/desktop/icon-cart.svg';
 import { links } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import Burger from './Burger';
 import Cart from './Cart';
 
 const Header = () => {
-  const { toggleCartModal, isCartModalOpen } = useGlobalContext();
+  const { toggleCartModal, cart } = useGlobalContext();
   return (
     <Wrapper>
       <div className='container header__container'>
         <Burger />
-        <img className='logo' src={logo} alt='logo' />
-        <nav>
+        <Link to='/' className='logo'>
+          <img src={logo} alt='logo' />
+        </Link>
+        <Nav>
           <ul className='nav__list'>
             {links.map((link) => {
               const { id, text, url } = link;
@@ -28,13 +30,16 @@ const Header = () => {
               );
             })}
           </ul>
-        </nav>
-        <img
-          className='cart-image'
-          src={cart}
-          alt='cart'
-          onClick={toggleCartModal}
-        />
+        </Nav>
+        <div className='cart-icon-container'>
+          <img
+            className='cart-image'
+            src={icon_cart}
+            alt='cart'
+            onClick={toggleCartModal}
+          />
+          <span className='cart-count'>{cart.length}</span>
+        </div>
         <Cart />
       </div>
     </Wrapper>
@@ -48,14 +53,10 @@ const Wrapper = styled.header`
   color: var(--clr-white);
   height: 5.625rem;
   .logo {
-    width: 9rem;
+    max-height: 1.565rem;
   }
   nav {
     display: none;
-  }
-  .nav__list {
-    display: flex;
-    gap: 34px;
   }
   .header__container {
     position: relative;
@@ -64,6 +65,20 @@ const Wrapper = styled.header`
     align-items: center;
     .cart-image {
       cursor: pointer;
+    }
+    .cart-icon-container {
+      position: relative;
+      .cart-count {
+        text-align: center;
+        width: 1.2rem;
+        line-height: 1.2rem;
+        position: absolute;
+        top: -0.5rem;
+        left: 1rem;
+        background-color: var(--clr-primary-1);
+        border-radius: 50%;
+        font-size: 0.75rem;
+      }
     }
   }
 
@@ -82,4 +97,10 @@ const Wrapper = styled.header`
   }
 `;
 
+const Nav = styled.nav`
+  .nav__list {
+    display: flex;
+    gap: 34px;
+  }
+`;
 export default Header;

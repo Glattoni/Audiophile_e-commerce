@@ -48,7 +48,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  margin-bottom: 7.5rem;
   @media screen and (min-width: 768px) {
     flex-direction: row;
   }

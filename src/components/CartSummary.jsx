@@ -7,7 +7,6 @@ import { useGlobalContext } from '../context/context';
 const CartSummary = () => {
   const { cart, total_price, shipping, VAT, grand_total, toggleCheckoutModal } =
     useGlobalContext();
-  console.log(toggleCheckoutModal);
   return (
     <Summary>
       <h6 className='summary-title'>Summary</h6>
@@ -34,7 +33,7 @@ const CartSummary = () => {
           <span className='price grand-total'>{formatPrice(grand_total)}</span>
         </p>
       </Totals>
-      <button type='submit' className='btn-1' onClick={toggleCheckoutModal}>
+      <button type='submit' className='btn-1'>
         continue & pay
       </button>
     </Summary>

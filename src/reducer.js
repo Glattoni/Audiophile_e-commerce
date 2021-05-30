@@ -1,6 +1,5 @@
 import {
-  OPEN_SIDEBAR,
-  CLOSE_SIDEBAR,
+  TOGGLE_SIDEBAR,
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_ERROR,
   GET_SINGLE_PRODUCT_SUCCESS,
@@ -15,11 +14,8 @@ import {
 } from './actions';
 
 const reducer = (state, action) => {
-  if (action.type === OPEN_SIDEBAR) {
-    return { ...state, isSidebarOpen: true };
-  }
-  if (action.type === CLOSE_SIDEBAR) {
-    return { ...state, isSidebarOpen: false };
+  if (action.type === TOGGLE_SIDEBAR) {
+    return { ...state, isSidebarOpen: !state.isSidebarOpen };
   }
   if (action.type === GET_SINGLE_PRODUCT_BEGIN) {
     return {

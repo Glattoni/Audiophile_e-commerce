@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import mobileImage from '../assets/mobile/hero.jpg';
-import tabletImage from '../assets/tablet/hero.jpg';
-import desktopImage from '../assets/desktop/hero.jpg';
+import { Link } from 'react-router-dom';
+import mobileImage from '/home/mobile/image-header.jpg';
+import tabletImage from '/home/tablet/image-header.jpg';
+import desktopImage from '/home/desktop/image-hero.jpg';
 
 const Hero = () => {
   const width = window.innerWidth;
@@ -17,36 +18,41 @@ const Hero = () => {
       }
     >
       <HeroContainer className='container'>
-        <span>new product</span>
-        <h1>XX99 Mark II Headphone</h1>
-        <p>
-          Experience natural, lifelike audio and exceptional build quality made
-          for the passionate music enthusiast.
-        </p>
-        <a className='btn-1'>see product</a>
+        <div>
+          <span>new product</span>
+          <h1>XX99 Mark II Headphone</h1>
+          <p>
+            Experience natural, lifelike audio and exceptional build quality
+            made for the passionate music enthusiast.
+          </p>
+          <Link to='/product/4' className='btn-1'>
+            see product
+          </Link>
+        </div>
       </HeroContainer>
     </HeroSection>
   );
 };
 
 const HeroSection = styled.section`
-  min-height: calc(100vh - 5rem);
-  display: grid;
-  place-items: center;
   background-repeat: no-repeat;
-  background-position: 0 100% !important;
   background-size: 100% 100%;
   border-top: 1px solid var(--clr-border);
   margin-bottom: 2.5rem;
   @media screen and (min-width: 768px) {
     background-position: center !important;
     background-size: cover;
+    margin-bottom: 6rem;
   }
   @media screen and (min-width: 1280px) {
     background-position: 0 100% !important;
+    margin-bottom: 7.5rem;
   }
 `;
 const HeroContainer = styled.div`
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 5rem);
   text-align: center;
   color: var(--clr-white);
   span {
@@ -88,12 +94,12 @@ const HeroContainer = styled.div`
   @media screen and (min-width: 1280px) {
     text-align: left;
     h1 {
-      max-width: 35%;
+      max-width: 55%;
     }
     p {
       margin: 0;
       margin-bottom: 2rem;
-      max-width: 31%;
+      max-width: 48%;
     }
   }
 `;

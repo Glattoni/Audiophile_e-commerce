@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import logo from '../assets/logo.svg';
+import logo from '/shared/desktop/logo.svg';
 import { links } from '../utils/constants';
-import { socialLinks } from '../utils/constants';
 import { Link } from 'react-router-dom';
+import { scrollToTop } from '../utils/heleprs';
+import { Facebook, Twitter, Instagram } from '../components/logos';
 
 const Footer = () => {
   return (
@@ -16,7 +17,7 @@ const Footer = () => {
               const { id, text, url } = link;
               return (
                 <li key={id}>
-                  <Link className='nav-link' to={url}>
+                  <Link className='nav-link' to={url} onClick={scrollToTop}>
                     {text}
                   </Link>
                 </li>
@@ -33,16 +34,21 @@ const Footer = () => {
         <FooterBottom>
           <p>Copyright {new Date().getFullYear()}. All rights reserved</p>
           <ul>
-            {socialLinks.map((link) => {
-              const { id, img, url, text } = link;
-              return (
-                <li key={id}>
-                  <Link to={url}>
-                    <img className='social-link' src={img} alt={text} />
-                  </Link>
-                </li>
-              );
-            })}
+            <li>
+              <a href='https://www.facebook.com/' target='_blank'>
+                <Facebook className='social-icon' />
+              </a>
+            </li>
+            <li>
+              <a href='https://twitter.com/?lang=en' target='_blank'>
+                <Twitter className='social-icon' />
+              </a>
+            </li>
+            <li>
+              <a href='https://www.instagram.com/' target='_blank'>
+                <Instagram className='social-icon' />
+              </a>
+            </li>
           </ul>
         </FooterBottom>
       </FooterContainer>
@@ -80,7 +86,6 @@ const FooterContainer = styled.div`
     line-height: var(--lh-base);
     opacity: 0.5;
     margin-bottom: 3rem;
-    max-width: 33.75rem;
   }
   @media screen and (min-width: 768px) {
     &::after {
@@ -90,6 +95,11 @@ const FooterContainer = styled.div`
     }
     .about-us {
       text-align: left;
+    }
+  }
+  @media screen and (min-width: 1280px) {
+    .about-us {
+      max-width: 33.75rem;
     }
   }
 `;
@@ -106,6 +116,7 @@ const Nav = styled.nav`
     flex-direction: column;
     gap: 1rem;
   }
+
   .logo {
     max-width: 9rem;
   }
@@ -134,10 +145,24 @@ const FooterBottom = styled.div`
   ul {
     display: flex;
     gap: 1rem;
+    li {
+      transition: var(--transiton-general);
+      .social-icon:hover {
+        fill: var(--clr-primary-1);
+      }
+    }
   }
   @media screen and (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
+  }
+  @media screen and (min-width: 1280px) {
+    p {
+      margin-bottom: 0;
+    }
+    ul {
+      transform: translateY(-5rem);
+    }
   }
 `;
 

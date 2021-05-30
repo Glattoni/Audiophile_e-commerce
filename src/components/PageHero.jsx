@@ -16,14 +16,17 @@ const Wrapper = styled.section`
   font-size: var(--fs-h4);
   color: var(--clr-white);
   border-top: 1px solid var(--clr-border);
-  margin-bottom: 4rem;
+  margin-bottom: 7.5rem;
   @media screen and (min-width: 768px) {
-    padding: 5rem 0;
+    padding: 6rem 0;
     h4 {
       font-size: var(--fs-h2);
       line-height: var(--lh-h2);
       letter-spacing: var(--ls-h2);
     }
+  }
+  @media screen and (min-width: 1280px) {
+    margin-bottom: 10rem;
   }
 `;
 

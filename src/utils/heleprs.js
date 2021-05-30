@@ -4,3 +4,10 @@ export const formatPrice = (number) => {
     currency: 'USD',
   }).format(number / 100);
 };
+
+export const scrollToTop = () => {
+  return window.scroll({
+    top: 0,
+    left: 0,
+  });
+};

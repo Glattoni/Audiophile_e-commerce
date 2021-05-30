@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import speaker from '../assets/mobile/speaker_zx7.jpg';
-import speaker_tablet from '../assets/tablet/speaker_zx7.jpg';
-import speaker_desktop from '../assets/desktop/speaker_zx7.jpg';
+import { Link } from 'react-router-dom';
+import { scrollToTop } from '../utils/heleprs';
+import speaker_mobile from '/home/mobile/image-speaker-zx7.jpg';
+import speaker_tablet from '/home/tablet/image-speaker-zx7.jpg';
+import speaker_desktop from '/home/desktop/image-speaker-zx7.jpg';
 
 const Speaker_ZX7 = () => {
   const width = window.innerWidth;
@@ -13,11 +15,13 @@ const Speaker_ZX7 = () => {
           ? { backgroundImage: `url(${speaker_desktop})` }
           : width >= 768
           ? { backgroundImage: `url(${speaker_tablet})` }
-          : { backgroundImage: `url(${speaker})` }
+          : { backgroundImage: `url(${speaker_mobile})` }
       }
     >
       <h4>zx7 speaker</h4>
-      <a className='btn-2'>see product</a>
+      <Link to='/product/5' className='btn-2' onClick={scrollToTop}>
+        see product
+      </Link>
     </Wrapper>
   );
 };

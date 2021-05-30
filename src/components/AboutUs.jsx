@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import image from '../assets/mobile/best-gear.jpg';
-import image_tablet from '../assets/tablet/best-gear.jpg';
-import image_desktop from '../assets/desktop/best-gear.jpg';
+import image_mobile from '/shared/mobile/image-best-gear.jpg';
+import image_tablet from '/shared/tablet/image-best-gear.jpg';
+import image_desktop from '/shared/desktop/image-best-gear.jpg';
 
 const AboutUs = () => {
   const width = window.innerWidth;
@@ -11,7 +11,11 @@ const AboutUs = () => {
       <div>
         <img
           src={`${
-            width >= 1280 ? image_desktop : width >= 768 ? image_tablet : image
+            width >= 1280
+              ? image_desktop
+              : width >= 768
+              ? image_tablet
+              : image_mobile
           }`}
           alt='best gear'
         />
@@ -36,14 +40,17 @@ const AboutUs = () => {
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  margin-bottom: 7.5rem;
   text-align: center;
   div {
     img {
+      margin-bottom: 2.5rem;
       width: 100%;
       border-radius: var(--radius);
-      margin-bottom: 2.5rem;
-      @media screen and (min-width: 768px) {
+    }
+  }
+  @media screen and (min-width: 768px) {
+    div {
+      img {
         margin-bottom: 4rem;
       }
     }
@@ -52,6 +59,9 @@ const Wrapper = styled.section`
     flex-direction: row-reverse;
     div {
       max-width: 50%;
+      img {
+        margin-bottom: 0;
+      }
     }
   }
 `;
@@ -68,7 +78,6 @@ const Content = styled.div`
     font-weight: 500;
     font-size: var(--fs-base);
     line-height: var(--lh-micro);
-    text-align: justify;
   }
   @media screen and (min-width: 768px) {
     h4 {

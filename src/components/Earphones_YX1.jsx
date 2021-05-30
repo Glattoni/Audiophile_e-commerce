@@ -1,9 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import earphones from '../assets/mobile/earphones.jpg';
-import earphones_tablet from '../assets/tablet/earphones.jpg';
-import earphones_desktop from '../assets/desktop/earphones.jpg';
+import { scrollToTop } from '../utils/heleprs';
+import earphones_mobile from '/home/mobile/image-earphones-yx1.jpg';
+import earphones_tablet from '/home/tablet/image-earphones-yx1.jpg';
+import earphones_desktop from '/home/desktop/image-earphones-yx1.jpg';
 
 const Earphones_YX1 = () => {
   const width = window.innerWidth;
@@ -16,14 +17,14 @@ const Earphones_YX1 = () => {
               ? earphones_desktop
               : width >= 768
               ? earphones_tablet
-              : earphones
+              : earphones_mobile
           }`}
           alt='earphones'
         />
       </ImageContainer>
       <div className='content'>
         <h4>yx1 earphones</h4>
-        <Link to='/' className='btn-2'>
+        <Link to='/product/1' className='btn-2' onClick={scrollToTop}>
           see product
         </Link>
       </div>

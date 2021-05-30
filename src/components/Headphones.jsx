@@ -17,7 +17,9 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 7.5rem;
-  margin-bottom: 7.5rem;
+  @media screen and (min-width: 1280px) {
+    gap: 10rem;
+  }
 `;
 
 export default Headphones;

@@ -5,8 +5,13 @@ import { Link } from 'react-router-dom';
 import { formatPrice } from '../utils/heleprs';
 
 const OrderModal = () => {
-  const { cart, grand_total, toggleCheckoutModal, isCheckoutModalOpen } =
-    useGlobalContext();
+  const {
+    cart,
+    grand_total,
+    clearCart,
+    isCheckoutModalOpen,
+    toggleCheckoutModal,
+  } = useGlobalContext();
   const { cartImage: image, slug: title, price, amount } = cart[0];
   return (
     <Wrapper className={`${isCheckoutModalOpen ? 'show' : 'hide'}`}>
@@ -36,7 +41,14 @@ const OrderModal = () => {
             <p className='grand-price'>{formatPrice(grand_total)}</p>
           </GrandInfo>
         </OrderSummary>
-        <Link to='/' className='btn-1 back-home' onClick={toggleCheckoutModal}>
+        <Link
+          to='/'
+          className='btn-1 back-home'
+          onClick={() => {
+            toggleCheckoutModal();
+            clearCart();
+          }}
+        >
           back home
         </Link>
       </div>

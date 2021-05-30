@@ -14,11 +14,10 @@ const FeaturedProducts = () => {
   );
 };
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  margin-bottom: 7.5rem;
 `;
 
 export default FeaturedProducts;

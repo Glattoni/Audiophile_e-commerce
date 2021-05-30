@@ -3,9 +3,9 @@ import styled from 'styled-components';
 import { useGlobalContext } from '../context/context';
 
 const Burger = () => {
-  const { isSidebarOpen, openSidebar, closeSidebar } = useGlobalContext();
+  const { isSidebarOpen, toggleSidebar } = useGlobalContext();
   return (
-    <Wrapper onClick={isSidebarOpen ? closeSidebar : openSidebar}>
+    <Wrapper onClick={toggleSidebar}>
       <div className={`${isSidebarOpen ? 'burger open' : 'burger'}`}></div>
     </Wrapper>
   );

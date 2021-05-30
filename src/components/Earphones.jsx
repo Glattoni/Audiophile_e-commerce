@@ -17,7 +17,6 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   gap: 7.5rem;
-  margin-bottom: 7.5rem;
 `;
 
 export default Earphones;

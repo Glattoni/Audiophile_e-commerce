@@ -20,12 +20,14 @@ const SingleProduct = (data) => {
         />
       </div>
       <Content>
-        {new_label ? <span className='overline'>new product</span> : ''}
-        <h4>{name}</h4>
-        <p>{text}</p>
-        <Link to={`/product/${id}`} className='btn-1'>
-          see product
-        </Link>
+        <div>
+          {new_label ? <span className='overline'>new product</span> : ''}
+          <h4>{name}</h4>
+          <p>{text}</p>
+          <Link to={`/product/${id}`} className='btn-1'>
+            see product
+          </Link>
+        </div>
       </Content>
     </Wrapper>
   );
@@ -35,7 +37,6 @@ const Wrapper = styled.article`
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  text-align: center;
   img {
     width: 100%;
     height: 100%;
@@ -45,11 +46,13 @@ const Wrapper = styled.article`
     gap: 3.25rem;
   }
   @media screen and (min-width: 1280px) {
-    flex-direction: row;
     gap: 7.85rem;
+    flex-direction: row;
   }
 `;
 const Content = styled.div`
+  display: flex;
+  align-items: center;
   span {
     display: inline-block;
     margin-bottom: 1.5rem;
@@ -57,13 +60,15 @@ const Content = styled.div`
   h4 {
     margin-bottom: 1.5rem;
   }
-
   p {
     font-weight: 500;
     opacity: 0.5;
     line-height: var(--lh-micro);
     margin-bottom: 1.5rem;
     font-size: var(--fs-base);
+  }
+  div {
+    text-align: center;
   }
   @media screen and (min-width: 768px) {
     gap: 3.25rem;
@@ -81,9 +86,7 @@ const Content = styled.div`
     }
   }
   @media screen and (min-width: 1280px) {
-    padding-top: 5.75rem;
     width: 100%;
-    text-align: left;
     h4 {
       max-width: 72%;
       margin: 0;
@@ -93,6 +96,9 @@ const Content = styled.div`
       margin: 0;
       margin-bottom: 2.5rem;
       max-width: 85%;
+    }
+    div {
+      text-align: left;
     }
   }
 `;

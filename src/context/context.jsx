@@ -1,7 +1,6 @@
 import React, { useReducer, useContext, createContext, useEffect } from 'react';
 import {
-  CLOSE_SIDEBAR,
-  OPEN_SIDEBAR,
+  TOGGLE_SIDEBAR,
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_ERROR,
@@ -46,12 +45,8 @@ const initialState = {
 export const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  const openSidebar = () => {
-    dispatch({ type: OPEN_SIDEBAR });
-  };
-
-  const closeSidebar = () => {
-    dispatch({ type: CLOSE_SIDEBAR });
+  const toggleSidebar = () => {
+    dispatch({ type: TOGGLE_SIDEBAR });
   };
 
   const toggleCartModal = () => {
@@ -104,8 +99,7 @@ export const ContextProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         ...state,
-        openSidebar,
-        closeSidebar,
+        toggleSidebar,
         getSingleProduct,
         addToCart,
         toggleAmount,
