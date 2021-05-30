@@ -84,22 +84,19 @@ const reducer = (state, action) => {
   }
   if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
     const { id, value } = action.payload;
-    const tempCart = state.cart.map((cartItem, index) => {
-      if (cartItem.id === id) {
-        if (value === 'inc') {
-          let newAmount = cartItem.amount + 1;
-          return { ...cartItem, amount: newAmount };
-        }
-        if (value === 'dec') {
-          let newAmount = cartItem.amount - 1;
-          if (newAmount < 1) {
-            state.cart.splice(index, 1);
+    const tempCart = state.cart
+      .map((cartItem, index) => {
+        if (cartItem.id === id) {
+          if (value === 'inc') {
+            return { ...cartItem, amount: cartItem.amount + 1 };
           }
-          return { ...cartItem, amount: newAmount };
+          if (value === 'dec') {
+            return { ...cartItem, amount: cartItem.amount - 1 };
+          }
         }
-      }
-      return cartItem;
-    });
+        return cartItem;
+      })
+      .filter((cartItem) => cartItem.amount !== 0);
     return { ...state, cart: tempCart };
   }
   if (action.type === CLEAR_CART) {
