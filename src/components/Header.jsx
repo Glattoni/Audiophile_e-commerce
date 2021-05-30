@@ -4,14 +4,17 @@ import { useGlobalContext } from '../context/context';
 import logo from '/shared/desktop/logo.svg';
 import icon_cart from '/shared/desktop/icon-cart.svg';
 import { links } from '../utils/constants';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import Burger from './Burger';
 import Cart from './Cart';
 
 const Header = () => {
+  const location = useLocation();
   const { toggleCartModal, cart } = useGlobalContext();
   return (
-    <Wrapper>
+    <Wrapper
+      className={`${location.pathname === '/' ? 'light-bgc' : 'black-bgc'}`}
+    >
       <div className='container header__container'>
         <Burger />
         <Link to='/' className='logo'>
@@ -49,7 +52,6 @@ const Header = () => {
 const Wrapper = styled.header`
   display: grid;
   place-items: center;
-  background-color: var(--clr-black);
   color: var(--clr-white);
   height: 5.625rem;
   .logo {

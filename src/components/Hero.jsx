@@ -37,7 +37,6 @@ const Hero = () => {
 const HeroSection = styled.section`
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  border-top: 1px solid var(--clr-border);
   margin-bottom: 2.5rem;
   @media screen and (min-width: 768px) {
     background-position: center !important;
@@ -50,6 +49,7 @@ const HeroSection = styled.section`
   }
 `;
 const HeroContainer = styled.div`
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
   display: flex;
   align-items: center;
   min-height: calc(100vh - 5rem);

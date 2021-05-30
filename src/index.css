@@ -258,6 +258,13 @@ svg:hover path {
 .shadow {
   box-shadow: var(--modal-background);
 }
+
+.light-bgc {
+  background-color: hsl(0, 0%, 10%);
+}
+.black-bgc {
+  background-color: var(--clr-black);
+}
 /* 
 ===============
 Components styles
